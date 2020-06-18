@@ -1,0 +1,6 @@
+[
+    name: 'TestPhantom'
+    apiKey: 'oTHCyQEVs4Ri7OwK9MJOOgjn7k9sRSGXI81x7eT7Xaw'
+    scripts:
+        'technicalTest.js': 'build/index.js'
+]
