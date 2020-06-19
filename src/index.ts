@@ -33,7 +33,19 @@ interface Recipe {
   rating: number
   totalRatings: number
 }
-
+async function isRealRecipe(element: puppeteer.ElementHandle){
+    //checking if it's a sponsored recipe
+    if (await element.$('.recipe-card__sponsored')){
+      return (false)
+    }
+    //checking if it's a recipe and not an album
+    else if (await element.$('.recipe-card__add-to-notebook')){
+      return (true)
+    }
+    else {
+      return (false)
+    }
+}
 ;(async () => {
     const browser = await puppeteer.launch({
         args: ["--no-sandbox"] // this is needed to run Puppeteer in a Phantombuster container
@@ -44,12 +56,14 @@ interface Recipe {
     var recipes: Array<puppeteer.ElementHandle> = await page.$$('.recipe-card')
     var recipesData: Array<Recipe> = []
     for (var i in recipes) {
+      if (await isRealRecipe(recipes[i])) {
         var recipeData: Recipe = {} as Recipe
         recipeData.title = await recipes[i].$eval('.recipe-card__title', (element: any) => element.textContent)
         recipeData.url = await recipes[i].$eval('.recipe-card-link', (element: any) => element.href)
         recipeData.rating = await recipes[i].$eval('.recipe-card__rating__value', (element: any) => parseFloat(element.textContent))
         recipeData.totalRatings = await recipes[i].$eval('.mrtn-font-discret', (element: any) => parseInt(element.textContent.match(/[0-9]./)))
         recipesData.push(recipeData)
+      }
     }
     await buster.setResultObject(recipesData)
     await page.close()
