@@ -1,3 +1,4 @@
-package-log.json
+package-lock.json
 node_modules
 build
+phantombuster.cson

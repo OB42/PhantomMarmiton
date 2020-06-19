@@ -1,6 +1,6 @@
 [
     name: 'TestPhantom'
-    apiKey: 'oTHCyQEVs4Ri7OwK9MJOOgjn7k9sRSGXI81x7eT7Xaw'
+    apiKey: 'BJ3UvMnvD3WLRzFJ6SjwgpFuMzIpEqYYwtfcVbW223Q'
     scripts:
-        'technicalTest.js': 'build/index.js'
+        'marmiton.js': 'build/index.js'
 ]
