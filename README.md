@@ -16,8 +16,7 @@ Run:
 ## Input
 
     {
-    //a marmiton search URL
     "searchURL": "https://www.marmiton.org/recettes/recherche.aspx?type=all&aqt=falafel",
-    "pages": 2//how many pages to scrape, optional
+    "pages": 2
     }
 
