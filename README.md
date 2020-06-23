@@ -9,8 +9,8 @@ Add your API key in phantombuster.cson
 Run:
 
     npm install
-    npm build
-    npm deploy
+    npm run build
+    npm run deploy
    You can now use the marmiton phantom in your org store.
 
 ## Input
